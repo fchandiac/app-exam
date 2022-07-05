@@ -1,17 +1,36 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Clientes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-content>
+      <ion-col>
+        <ion-col>
+          <ion-label>Nuevo Cliente</ion-label>
+          <ion-item>
+            <ion-label position="floating">nombre</ion-label>
+            <ion-input [(ngModel)]="nombre"></ion-input>
+          </ion-item>
+          <br>
+          <ion-button (click)="submit()">enviar</ion-button>
+        </ion-col>
+      </ion-col>
+    </ion-card-content>
+  </ion-card>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        lista de clientes
+      </ion-list-header>
+      <ion-item *ngFor="let client of clients">
+        {{client.nombre}}
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
